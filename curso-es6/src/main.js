@@ -2,12 +2,12 @@ class App {
   constructor() {
     this.repository = [];
     this.formEl = document.getElementById("repo-form");
+    this.listEl = document.getElementById("repo-list");
 
     this.registerHandlers();
   }
 
   registerHandlers() {
-    this.formEl.onsubmit = (event) => this.addRepository(event);
     this.formEl.onsubmit = (event) => this.addRepository(event);
   }
 
@@ -20,7 +20,34 @@ class App {
         "https://github.com/gilmaresende/rocketseat/blob/master/curso-es6/img/wolf.png?raw=true",
       html_url: "https://github.com/gilmaresende/rocketseat",
     });
-    console.log(this.repository);
+    this.render();
+  }
+
+  render(){
+    this.listEl.innerHTML = "";
+
+    this.repository.forEach(repo => {
+      let imgEl = document.createElement('img');
+      imgEl.setAttribute('src', repo.avatar_url);
+
+      let titleEl = document.createElement('strong');
+      titleEl.appendChild(document.createTextNode(repo.name));
+
+      let descriptionEl = document.createElement('p');
+      descriptionEl.appendChild(document.createTextNode(repo.description));
+
+      let linkEl = document.createElement('a');
+      linkEl.setAttribute('target', '_blank');
+      linkEl.appendChild(document.createTextNode('Acessar'));
+
+      let listItemEl = document.createElement('li');
+      listItemEl.appendChild(imgEl);
+      listItemEl.appendChild(titleEl);
+      listItemEl.appendChild(descriptionEl);
+      listItemEl.appendChild(linkEl);
+
+      this.listEl.appendChild(listItemEl);
+    });
   }
 }
 
