@@ -1,9 +1,56 @@
 <html>
-    <header>
-
-    </header>
-    <body>
-        <button id="novoTodo" >Adicionar Todo</button>
-    </body>
-    <script src="./bundle.js"></script>
+  <header>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      li {
+        clear: both;
+        margin-top: 20px;
+      }
+      img {
+        width: 80px;
+        float: left;
+        margin-right: 10px;
+      }
+      strong {
+        font-size: 20px;
+      }
+      p {
+        margin: 5px 0;
+      }
+    </style>
+  </header>
+  <body>
+    <form id="repo-form">
+      <input type="text" name="repository" />
+      <button type="submit">Adicionar</button>
+    </form>
+    <ul>
+      <li>
+        <img
+          src="https://github.com/gilmaresende/rocketseat/blob/master/curso-es6/img/wolf.png?raw=true"
+        />
+        <p>Tire sua do papel e dê vida à sua startup.</p>
+        <a target="_blank" href="https://github.com/gilmaresende/rocketseat"
+          >Acessar</a
+        >
+      </li>
+      <li>
+        <img
+          src="https://github.com/gilmaresende/rocketseat/blob/master/curso-es6/img/wolf.png?raw=true"
+        />
+        <p>Tire sua do papel e dê vida à sua startup.</p>
+        <a target="_blank" href="https://github.com/gilmaresende/rocketseat"
+          >Acessar</a
+        >
+      </li>
+    </ul>
+  </body>
+  <script src="./bundle.js"></script>
 </html>
