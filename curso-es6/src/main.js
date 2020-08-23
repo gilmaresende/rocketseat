@@ -20,6 +20,8 @@ class App {
 
     if (repoInput.length === 0) return;
 
+    this.setLoading();
+
     try {
       const response = await api.get(`repos/${repoInput}`);
 
@@ -35,8 +37,9 @@ class App {
 
       this.render();
     } catch (err) {
-      console.log("Não encontrado");
+      alert("Não Repositório Não Encontrado");
     }
+    this.setLoading(false);
   }
 
   render() {
@@ -65,6 +68,16 @@ class App {
 
       this.listEl.appendChild(listItemEl);
     });
+  }
+  setLoading(loading = true) {
+    if (loading) {
+      let loadingEl = document.createElement("span");
+      loadingEl.append(document.createTextNode("Carregando"));
+      loadingEl.setAttribute("id", "loading");
+      this.formEl.appendChild(loadingEl);
+    } else {
+      document.getElementById("loading").remove();
+    }
   }
 }
 
