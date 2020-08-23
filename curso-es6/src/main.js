@@ -1,54 +1,20 @@
-class App {
-  constructor() {
-    this.repository = [];
-    this.formEl = document.getElementById("repo-form");
-    this.listEl = document.getElementById("repo-list");
+const minhaPromise = () =>
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("ok");
+    }, 2000);
+  });
 
-    this.registerHandlers();
-  }
+// async function executaPromise() {
+//   console.log(await minhaPromise());
+//   console.log(await minhaPromise());
+//   console.log(await minhaPromise());
+//   console.log(await minhaPromise());
+// }
 
-  registerHandlers() {
-    this.formEl.onsubmit = (event) => this.addRepository(event);
-  }
-
-  addRepository(event) {
-    event.preventDefault();
-    this.repository.push({
-      name: "rocketseat.com.br",
-      description: "Tire sua do papel e dê vida à sua startup.",
-      avatar_url:
-        "https://github.com/gilmaresende/rocketseat/blob/master/curso-es6/img/wolf.png?raw=true",
-      html_url: "https://github.com/gilmaresende/rocketseat",
-    });
-    this.render();
-  }
-
-  render(){
-    this.listEl.innerHTML = "";
-
-    this.repository.forEach(repo => {
-      let imgEl = document.createElement('img');
-      imgEl.setAttribute('src', repo.avatar_url);
-
-      let titleEl = document.createElement('strong');
-      titleEl.appendChild(document.createTextNode(repo.name));
-
-      let descriptionEl = document.createElement('p');
-      descriptionEl.appendChild(document.createTextNode(repo.description));
-
-      let linkEl = document.createElement('a');
-      linkEl.setAttribute('target', '_blank');
-      linkEl.appendChild(document.createTextNode('Acessar'));
-
-      let listItemEl = document.createElement('li');
-      listItemEl.appendChild(imgEl);
-      listItemEl.appendChild(titleEl);
-      listItemEl.appendChild(descriptionEl);
-      listItemEl.appendChild(linkEl);
-
-      this.listEl.appendChild(listItemEl);
-    });
-  }
-}
-
-new App();
+const executaPromise = async () => {
+  console.log(await minhaPromise());
+  console.log(await minhaPromise());
+  console.log(await minhaPromise());
+};
+executaPromise();
